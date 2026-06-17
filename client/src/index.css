@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * SKYCOIN4444 design system — modeled on the reference dashboard:
+ * pure-black canvas, dark elevated cards, color-coded icon tiles,
+ * green "+%" pills, gradient cyan→purple primary actions.
+ */
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brand accents (used as tile colors / chart strokes) */
+  --neon-cyan: oklch(0.82 0.15 200);
+  --neon-purple: oklch(0.62 0.2 295);
+  --neon-magenta: oklch(0.68 0.23 350);
+  --neon-green: oklch(0.78 0.18 150);
+  --neon-amber: oklch(0.82 0.16 80);
+
+  /* Dark theme (default + only) — pure black canvas */
+  --background: oklch(0.04 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.10 0.005 270);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.10 0.005 270);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.82 0.15 200);
+  --primary-foreground: oklch(0.10 0 0);
+  --secondary: oklch(0.16 0.01 270);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.16 0.01 270);
+  --muted-foreground: oklch(0.65 0.01 270);
+  --accent: oklch(0.18 0.02 290);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.20 0.01 270);
+  --input: oklch(0.16 0.01 270);
+  --ring: oklch(0.82 0.15 200);
+}
+
+.dark {
+  --background: oklch(0.04 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.10 0.005 270);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.10 0.005 270);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.82 0.15 200);
+  --primary-foreground: oklch(0.10 0 0);
+  --secondary: oklch(0.16 0.01 270);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.16 0.01 270);
+  --muted-foreground: oklch(0.65 0.01 270);
+  --accent: oklch(0.18 0.02 290);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.20 0.01 270);
+  --input: oklch(0.16 0.01 270);
+  --ring: oklch(0.82 0.15 200);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: #050505;
+  }
+  .container {
+    @apply mx-auto px-4 sm:px-6;
+    max-width: 80rem;
+  }
+}
+
+@layer components {
+  /* Elevated dark card — the core surface from the reference */
+  .sk-card {
+    background: oklch(0.10 0.005 270);
+    border: 1px solid oklch(0.18 0.01 270);
+    border-radius: 1rem;
+    transition: border-color 200ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+  .sk-card-hover:hover {
+    border-color: oklch(0.30 0.02 270);
+    transform: translateY(-2px);
+  }
+
+  /* Color-coded square icon tile */
+  .sk-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.85rem;
+  }
+
+  /* Green +% pill */
+  .sk-pill-up {
+    color: oklch(0.85 0.18 150);
+    background: oklch(0.30 0.09 150 / 0.25);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .sk-pill-down {
+    color: oklch(0.72 0.2 25);
+    background: oklch(0.30 0.1 25 / 0.25);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  /* Gradient primary button */
+  .sk-gradient {
+    background-image: linear-gradient(135deg, oklch(0.82 0.15 200), oklch(0.62 0.2 295));
+    color: #05060a;
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(120deg, oklch(0.82 0.15 200), oklch(0.62 0.2 295), oklch(0.68 0.23 350));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Live pulse dot */
+@keyframes sk-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.sk-live-dot {
+  width: 0.6rem; height: 0.6rem; border-radius: 999px;
+  background: oklch(0.78 0.18 150);
+  animation: sk-pulse 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

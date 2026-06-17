@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1781049321579,
+      "tag": "0000_boring_bloodstrike",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1781049496222,
+      "tag": "0001_worthless_wild_pack",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1781054554138,
+      "tag": "0002_mixed_human_cannonball",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1781059900965,
+      "tag": "0003_tidy_darkstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1781061073000,
+      "tag": "0004_exotic_scarlet_spider",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1781066366875,
+      "tag": "0005_clear_hydra",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1781080916313,
+      "tag": "0006_tense_gauntlet",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1781082151771,
+      "tag": "0007_bouncy_dark_beast",
+      "breakpoints": true
+    }
+  ]
+}
