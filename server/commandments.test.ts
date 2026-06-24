@@ -21,7 +21,7 @@ import {
   users, posts, comments, likes, follows, communities, communityMembers,
   channels, messages, streams, stakingPositions, marketplaceListings,
   charityProjects, wallets, tournaments, subscriptions,
-} from "../drizzle/schema";
+} from "../drizzle";
 import {
   tournamentWagers, questDefinitions, questProgress, xpTransactions,
   marketplaceOrders, marketplaceEscrow, sellerProfiles, productReviews,

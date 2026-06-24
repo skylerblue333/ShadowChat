@@ -7,7 +7,7 @@
 
 import { notifyOwner } from "./_core/notification";
 import { getDb } from "./db";
-import { notifications } from "../drizzle/schema";
+import { notifications } from "../drizzle";
 import { eq, desc, and } from "drizzle-orm";
 
 // ═══════════════════════════════════════════════════════════════

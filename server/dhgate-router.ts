@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
 import { getDb } from "./db";
-import { dhgateProducts, dhgateReviews, dhgateOrders } from "../drizzle/schema";
+import { dhgateProducts, dhgateReviews, dhgateOrders } from "../drizzle";
 import { eq, like, or, and, desc, asc } from "drizzle-orm";
 
 // Admin fee: 44% of every order goes to platform treasury

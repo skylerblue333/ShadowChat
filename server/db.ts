@@ -11,7 +11,7 @@ import {
   charityCampaigns, charityDonations, charityVotes,
   notifications, moderationLogs, payouts, platformMetrics, aiAnalytics,
   hopeAIChatHistory,
-} from "../drizzle/schema";
+} from "../drizzle";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;

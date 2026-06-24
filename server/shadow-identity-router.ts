@@ -1,6 +1,6 @@
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { users } from "../drizzle/schema";
+import { users } from "../drizzle";
 import { eq, desc } from "drizzle-orm";
 import * as dbHelpers from "./db";
 import { invokeLLM } from "./_core/llm";

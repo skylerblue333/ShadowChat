@@ -4,7 +4,7 @@
  */
 
 import { db } from "./db";
-import { users, creatorSubscriptions, payouts, posts } from "../drizzle/schema";
+import { users, creatorSubscriptions, payouts, posts } from "../drizzle";
 import { eq, and, gte, desc, count, sum } from "drizzle-orm";
 import { notifyOwner } from "./_core/notification";
 

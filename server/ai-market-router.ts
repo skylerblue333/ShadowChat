@@ -16,7 +16,7 @@ import {
   getRarityHistory,
 } from "./aiMarketEngine";
 import { db } from "./db";
-import { icoInvestorStats, marketSignals, aiMarketAgents } from "../drizzle/schema";
+import { icoInvestorStats, marketSignals, aiMarketAgents } from "../drizzle";
 import { eq, desc, sql } from "drizzle-orm";
 
 export const aiMarketRouter = router({

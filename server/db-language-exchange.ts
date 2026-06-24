@@ -10,7 +10,7 @@ import {
   teacherBookings,
   translationCache,
   languageExchangeStats,
-} from "../drizzle/schema";
+} from "../drizzle";
 import { eq, and, desc, like, gte, lte } from "drizzle-orm";
 
 // ═══════════════════════════════════════════════════════════════

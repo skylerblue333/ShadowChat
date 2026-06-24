@@ -1,30 +1,29 @@
-import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 
 export const commerceMarketplaceRouter = router({
   // NFT minting
   mintNFT: protectedProcedure
-    .input(z.object({ name: z.string(), metadata: z.record(z.string().or(z.number()).or(z.boolean())) }))
-    .mutation(async ({ input, ctx }) => ({
+    .input(z.object({ name: z.string(), metadata: z.record(z.any()) }))
+    .mutation(async ({ input }) => ({
       tokenId: `nft-${Date.now()}`,
       contractAddress: "0x123...",
       status: "minted",
-      userId: ctx.user.id,
     })),
 
   // Listing management
   createListing: protectedProcedure
     .input(z.object({ itemId: z.string(), price: z.number(), duration: z.number() }))
-    .mutation(async ({ input, ctx }) => ({
+    .mutation(async ({ input }) => ({
       listingId: `listing-${Date.now()}`,
       status: "active",
-      expiresAt: Date.now() + input.duration * 1000,
+      expiresAt: Date.now() + input.duration,
     })),
 
   // Auctions
   startAuction: protectedProcedure
     .input(z.object({ itemId: z.string(), startPrice: z.number() }))
-    .mutation(async ({ input, ctx }) => ({
+    .mutation(async ({ input }) => ({
       auctionId: `auction-${Date.now()}`,
       status: "active",
       currentBid: input.startPrice,
@@ -33,7 +32,7 @@ export const commerceMarketplaceRouter = router({
   // Escrow protection
   releaseEscrow: protectedProcedure
     .input(z.object({ escrowId: z.string() }))
-    .mutation(async ({ input, ctx }) => ({
+    .mutation(async ({ input }) => ({
       success: true,
       released: true,
     })),
@@ -41,7 +40,7 @@ export const commerceMarketplaceRouter = router({
   // Review system
   submitReview: protectedProcedure
     .input(z.object({ sellerId: z.string(), rating: z.number(), comment: z.string() }))
-    .mutation(async ({ input, ctx }) => ({
+    .mutation(async ({ input }) => ({
       success: true,
       reviewId: `review-${Date.now()}`,
     })),
@@ -49,7 +48,7 @@ export const commerceMarketplaceRouter = router({
   // Seller ratings
   getSellerRating: publicProcedure
     .input(z.object({ sellerId: z.string() }))
-    .query(async ({ input }: { input: { sellerId: string } }) => ({
+    .query(async ({ input }) => ({
       rating: 4.8,
       reviews: 1000,
       trustScore: 95,
