@@ -167,6 +167,24 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    chunkSizeWarningLimit: 3000,
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) return 'vendor-react';
+            if (id.includes('lucide')) return 'vendor-icons';
+            if (id.includes('radix-ui') || id.includes('@radix')) return 'vendor-radix';
+            if (id.includes('trpc') || id.includes('@trpc')) return 'vendor-trpc';
+            if (id.includes('tanstack') || id.includes('@tanstack')) return 'vendor-query';
+            if (id.includes('date-fns') || id.includes('dayjs')) return 'vendor-date';
+            if (id.includes('framer-motion') || id.includes('motion')) return 'vendor-motion';
+            if (id.includes('recharts') || id.includes('d3') || id.includes('chart')) return 'vendor-charts';
+            return 'vendor-misc';
+          }
+        }
+      }
+    }
   },
   server: {
     host: true,

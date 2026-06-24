@@ -21,15 +21,41 @@ import {
 } from "@/components/ui/sidebar";
 import { getLoginUrl } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { LayoutDashboard, LogOut, PanelLeft, Users } from "lucide-react";
+import { LayoutDashboard, LogOut, PanelLeft, Users, Brain, Cpu, Globe, Rocket, Wallet, BarChart3, Shield, Zap, Star, Map, Bot, Building2, BookOpen, Gamepad2, MessageSquare, TrendingUp, Award } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Page 1", path: "/" },
-  { icon: Users, label: "Page 2", path: "/some-path" },
+  // ─── MANIUS OS ───────────────────────────────────────────────
+  { icon: LayoutDashboard, label: "Home", path: "/" },
+  { icon: Zap, label: "Situation Room", path: "/situation-room" },
+  { icon: Star, label: "Life Command", path: "/life-command" },
+  { icon: Brain, label: "Destiny Engine", path: "/destiny-engine" },
+  { icon: Cpu, label: "Free Will", path: "/free-will" },
+  // ─── AI ──────────────────────────────────────────────────────
+  { icon: Bot, label: "Agent City", path: "/agent-city" },
+  { icon: Brain, label: "HOPE AI", path: "/hope-ai" },
+  { icon: MessageSquare, label: "ShadowChat", path: "/shadowchat" },
+  // ─── ECONOMY ─────────────────────────────────────────────────
+  { icon: Building2, label: "Central Bank", path: "/central-bank" },
+  { icon: Wallet, label: "Wallet", path: "/wallet" },
+  { icon: TrendingUp, label: "Marketplace", path: "/marketplace" },
+  { icon: Rocket, label: "Blockchain", path: "/blockchain-custody" },
+  // ─── NATION ──────────────────────────────────────────────────
+  { icon: Globe, label: "Civilization", path: "/civilization" },
+  { icon: Map, label: "Digital Nation", path: "/digital-nation" },
+  { icon: Users, label: "Citizen Passport", path: "/citizen-passport" },
+  // ─── MEMORY ──────────────────────────────────────────────────
+  { icon: Star, label: "Memory Constellation", path: "/memory-constellation" },
+  // ─── ANALYTICS ───────────────────────────────────────────────
+  { icon: BarChart3, label: "Analytics", path: "/enterprise-analytics" },
+  { icon: Shield, label: "Security", path: "/security" },
+  // ─── COMMUNITY ───────────────────────────────────────────────
+  { icon: Gamepad2, label: "Gaming", path: "/gaming" },
+  { icon: BookOpen, label: "Education", path: "/education" },
+  { icon: Award, label: "Governance", path: "/governance" },
 ];
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";

@@ -36,6 +36,16 @@ export function registerOAuthRoutes(app: Express) {
         lastSignedIn: new Date(),
       });
 
+      // Airdrop starter tokens to every new user (idempotent — skips existing balances)
+      try {
+        const freshUser = await db.getUserByOpenId(userInfo.openId);
+        if (freshUser?.id) {
+          await db.ensureAllTokenBalances(freshUser.id);
+        }
+      } catch (airdropErr) {
+        console.warn("[Airdrop] Failed to seed starter tokens:", airdropErr);
+      }
+
       const sessionToken = await sdk.createSessionToken(userInfo.openId, {
         name: userInfo.name || "",
         expiresInMs: ONE_YEAR_MS,

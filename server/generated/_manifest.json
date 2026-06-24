@@ -1,0 +1,1226 @@
+[
+  {
+    "name": "Getuserprofile_1",
+    "title": "getUserProfile"
+  },
+  {
+    "name": "Updateuserprofile_2",
+    "title": "updateUserProfile"
+  },
+  {
+    "name": "Getuserstats_3",
+    "title": "getUserStats"
+  },
+  {
+    "name": "Updateuserstats_4",
+    "title": "updateUserStats"
+  },
+  {
+    "name": "Createpost_5",
+    "title": "createPost"
+  },
+  {
+    "name": "Updatepost_6",
+    "title": "updatePost"
+  },
+  {
+    "name": "Deletepostprocedure_7",
+    "title": "deletePostProcedure"
+  },
+  {
+    "name": "Getpostprocedure_8",
+    "title": "getPostProcedure"
+  },
+  {
+    "name": "Getposts_9",
+    "title": "getPosts"
+  },
+  {
+    "name": "Getfeed_10",
+    "title": "getFeed"
+  },
+  {
+    "name": "Togglelike_11",
+    "title": "toggleLike"
+  },
+  {
+    "name": "Getlikesprocedure_12",
+    "title": "getLikesProcedure"
+  },
+  {
+    "name": "Addcomment_13",
+    "title": "addComment"
+  },
+  {
+    "name": "Getcommentsprocedure_14",
+    "title": "getCommentsProcedure"
+  },
+  {
+    "name": "Deletecomment_15",
+    "title": "deleteComment"
+  },
+  {
+    "name": "Followuserprocedure_16",
+    "title": "followUserProcedure"
+  },
+  {
+    "name": "Unfollowuser_17",
+    "title": "unfollowUser"
+  },
+  {
+    "name": "Getfollowers_18",
+    "title": "getFollowers"
+  },
+  {
+    "name": "Getfollowing_19",
+    "title": "getFollowing"
+  },
+  {
+    "name": "Getuserposts_20",
+    "title": "getUserPosts"
+  },
+  {
+    "name": "Searchusers_21",
+    "title": "searchUsers"
+  },
+  {
+    "name": "Gettrendingtopics_22",
+    "title": "getTrendingTopics"
+  },
+  {
+    "name": "Gettopicposts_23",
+    "title": "getTopicPosts"
+  },
+  {
+    "name": "Createmessage_24",
+    "title": "createMessage"
+  },
+  {
+    "name": "Getmessages_25",
+    "title": "getMessages"
+  },
+  {
+    "name": "Deletemessage_26",
+    "title": "deleteMessage"
+  },
+  {
+    "name": "Markmessageread_27",
+    "title": "markMessageRead"
+  },
+  {
+    "name": "Getnotifications_28",
+    "title": "getNotifications"
+  },
+  {
+    "name": "Marknotificationread_29",
+    "title": "markNotificationRead"
+  },
+  {
+    "name": "Createnotification_30",
+    "title": "createNotification"
+  },
+  {
+    "name": "Deletenotification_31",
+    "title": "deleteNotification"
+  },
+  {
+    "name": "Getcryptobalance_32",
+    "title": "getCryptoBalance"
+  },
+  {
+    "name": "Getcryptoprices_33",
+    "title": "getCryptoPrices"
+  },
+  {
+    "name": "Startmining_34",
+    "title": "startMining"
+  },
+  {
+    "name": "Stopmining_35",
+    "title": "stopMining"
+  },
+  {
+    "name": "Getminingstats_36",
+    "title": "getMiningStats"
+  },
+  {
+    "name": "Stakeprocedure_37",
+    "title": "stakeProcedure"
+  },
+  {
+    "name": "Unstakeprocedure_38",
+    "title": "unstakeProcedure"
+  },
+  {
+    "name": "Getstakingrewards_39",
+    "title": "getStakingRewards"
+  },
+  {
+    "name": "Swap_40",
+    "title": "swap"
+  },
+  {
+    "name": "Getswappairs_41",
+    "title": "getSwapPairs"
+  },
+  {
+    "name": "Getswaphistory_42",
+    "title": "getSwapHistory"
+  },
+  {
+    "name": "Buycodesnippet_43",
+    "title": "buyCodeSnippet"
+  },
+  {
+    "name": "Sellcodesnippet_44",
+    "title": "sellCodeSnippet"
+  },
+  {
+    "name": "Getcodesnippets_45",
+    "title": "getCodeSnippets"
+  },
+  {
+    "name": "Searchcodesnippets_46",
+    "title": "searchCodeSnippets"
+  },
+  {
+    "name": "Ratecodesnippet_47",
+    "title": "rateCodeSnippet"
+  },
+  {
+    "name": "Getcodesnippetratings_48",
+    "title": "getCodeSnippetRatings"
+  },
+  {
+    "name": "Createcourse_49",
+    "title": "createCourse"
+  },
+  {
+    "name": "Updatecourse_50",
+    "title": "updateCourse"
+  },
+  {
+    "name": "Deletecourse_51",
+    "title": "deleteCourse"
+  },
+  {
+    "name": "Getcourses_52",
+    "title": "getCourses"
+  },
+  {
+    "name": "Enrollcourse_53",
+    "title": "enrollCourse"
+  },
+  {
+    "name": "Completecourse_54",
+    "title": "completeCourse"
+  },
+  {
+    "name": "Getlesson_55",
+    "title": "getLesson"
+  },
+  {
+    "name": "Getlessons_56",
+    "title": "getLessons"
+  },
+  {
+    "name": "Submitquiz_57",
+    "title": "submitQuiz"
+  },
+  {
+    "name": "Getquizresults_58",
+    "title": "getQuizResults"
+  },
+  {
+    "name": "Getcertificate_59",
+    "title": "getCertificate"
+  },
+  {
+    "name": "Getcertificates_60",
+    "title": "getCertificates"
+  },
+  {
+    "name": "Updategame_61",
+    "title": "updateGame"
+  },
+  {
+    "name": "Deletegame_62",
+    "title": "deleteGame"
+  },
+  {
+    "name": "Getgames_63",
+    "title": "getGames"
+  },
+  {
+    "name": "Playgame_64",
+    "title": "playGame"
+  },
+  {
+    "name": "Getleaderboard_65",
+    "title": "getLeaderboard"
+  },
+  {
+    "name": "Createachievement_66",
+    "title": "createAchievement"
+  },
+  {
+    "name": "Unlockachievement_67",
+    "title": "unlockAchievement"
+  },
+  {
+    "name": "Getachievements_68",
+    "title": "getAchievements"
+  },
+  {
+    "name": "Createproposal_69",
+    "title": "createProposal"
+  },
+  {
+    "name": "Voteproposal_70",
+    "title": "voteProposal"
+  },
+  {
+    "name": "Getproposals_71",
+    "title": "getProposals"
+  },
+  {
+    "name": "Getproposalvotes_72",
+    "title": "getProposalVotes"
+  },
+  {
+    "name": "Gettreasurybalance_73",
+    "title": "getTreasuryBalance"
+  },
+  {
+    "name": "Withdrawtreasury_74",
+    "title": "withdrawTreasury"
+  },
+  {
+    "name": "Deposittreasury_75",
+    "title": "depositTreasury"
+  },
+  {
+    "name": "Createcharity_76",
+    "title": "createCharity"
+  },
+  {
+    "name": "Updatecharityprocedure_77",
+    "title": "updateCharityProcedure"
+  },
+  {
+    "name": "Deletecharity_78",
+    "title": "deleteCharity"
+  },
+  {
+    "name": "Donatecharityprocedure_79",
+    "title": "donateCharityProcedure"
+  },
+  {
+    "name": "Getcharitydonations_80",
+    "title": "getCharityDonations"
+  },
+  {
+    "name": "Trackcharityimpact_81",
+    "title": "trackCharityImpact"
+  },
+  {
+    "name": "Getanalyticsdashboard_82",
+    "title": "getAnalyticsDashboard"
+  },
+  {
+    "name": "Generatereport_83",
+    "title": "generateReport"
+  },
+  {
+    "name": "Exportanalytics_84",
+    "title": "exportAnalytics"
+  },
+  {
+    "name": "Gettrendingmetrics_85",
+    "title": "getTrendingMetrics"
+  },
+  {
+    "name": "Getengagementmetrics_86",
+    "title": "getEngagementMetrics"
+  },
+  {
+    "name": "Getgrowthmetrics_87",
+    "title": "getGrowthMetrics"
+  },
+  {
+    "name": "Createtemplate_88",
+    "title": "createTemplate"
+  },
+  {
+    "name": "Updatetemplate_89",
+    "title": "updateTemplate"
+  },
+  {
+    "name": "Deletetemplate_90",
+    "title": "deleteTemplate"
+  },
+  {
+    "name": "Gettemplates_91",
+    "title": "getTemplates"
+  },
+  {
+    "name": "Searchtemplatesprocedure_92",
+    "title": "searchTemplatesProcedure"
+  },
+  {
+    "name": "Generatecode_93",
+    "title": "generateCode"
+  },
+  {
+    "name": "Debugcode_94",
+    "title": "debugCode"
+  },
+  {
+    "name": "Optimizecode_95",
+    "title": "optimizeCode"
+  },
+  {
+    "name": "Analyzeperformance_96",
+    "title": "analyzePerformance"
+  },
+  {
+    "name": "Createtrade_97",
+    "title": "createTrade"
+  },
+  {
+    "name": "Updatetrade_98",
+    "title": "updateTrade"
+  },
+  {
+    "name": "Closetrade_99",
+    "title": "closeTrade"
+  },
+  {
+    "name": "Gettrades_100",
+    "title": "getTrades"
+  },
+  {
+    "name": "Gettradehistory_101",
+    "title": "getTradeHistory"
+  },
+  {
+    "name": "Createbot_102",
+    "title": "createBot"
+  },
+  {
+    "name": "Updatebot_103",
+    "title": "updateBot"
+  },
+  {
+    "name": "Deletebot_104",
+    "title": "deleteBot"
+  },
+  {
+    "name": "Getbots_105",
+    "title": "getBots"
+  },
+  {
+    "name": "Startbot_106",
+    "title": "startBot"
+  },
+  {
+    "name": "Stopbot_107",
+    "title": "stopBot"
+  },
+  {
+    "name": "Getbotstats_108",
+    "title": "getBotStats"
+  },
+  {
+    "name": "Getportfolio_109",
+    "title": "getPortfolio"
+  },
+  {
+    "name": "Getportfoliovalue_110",
+    "title": "getPortfolioValue"
+  },
+  {
+    "name": "Rebalanceportfolio_111",
+    "title": "rebalancePortfolio"
+  },
+  {
+    "name": "Gettransactionhistory_112",
+    "title": "getTransactionHistory"
+  },
+  {
+    "name": "Exporttransactions_113",
+    "title": "exportTransactions"
+  },
+  {
+    "name": "Createnft_114",
+    "title": "createNFT"
+  },
+  {
+    "name": "Updatenft_115",
+    "title": "updateNFT"
+  },
+  {
+    "name": "Deletenft_116",
+    "title": "deleteNFT"
+  },
+  {
+    "name": "Getnfts_117",
+    "title": "getNFTs"
+  },
+  {
+    "name": "Searchnfts_118",
+    "title": "searchNFTs"
+  },
+  {
+    "name": "Buynft_119",
+    "title": "buyNFT"
+  },
+  {
+    "name": "Sellnft_120",
+    "title": "sellNft"
+  },
+  {
+    "name": "Getnfthistory_121",
+    "title": "getNFTHistory"
+  },
+  {
+    "name": "Createmarketplacelisting_122",
+    "title": "createMarketplaceListing"
+  },
+  {
+    "name": "Updatemarketplacelisting_123",
+    "title": "updateMarketplaceListing"
+  },
+  {
+    "name": "Deletemarketplacelisting_124",
+    "title": "deleteMarketplaceListing"
+  },
+  {
+    "name": "Getmarketplacelistings_125",
+    "title": "getMarketplaceListings"
+  },
+  {
+    "name": "Searchmarketplacelistings_126",
+    "title": "searchMarketplaceListings"
+  },
+  {
+    "name": "Buymarketplaceitem_127",
+    "title": "buyMarketplaceItem"
+  },
+  {
+    "name": "Sellmarketplaceitem_128",
+    "title": "sellMarketplaceItem"
+  },
+  {
+    "name": "Getmarketplaceorders_129",
+    "title": "getMarketplaceOrders"
+  },
+  {
+    "name": "Ratemarketplaceseller_130",
+    "title": "rateMarketplaceSeller"
+  },
+  {
+    "name": "Createevent_131",
+    "title": "createEvent"
+  },
+  {
+    "name": "Updateevent_132",
+    "title": "updateEvent"
+  },
+  {
+    "name": "Deleteevent_133",
+    "title": "deleteEvent"
+  },
+  {
+    "name": "Getevents_134",
+    "title": "getEvents"
+  },
+  {
+    "name": "Registerevent_135",
+    "title": "registerEvent"
+  },
+  {
+    "name": "Geteventattendees_136",
+    "title": "getEventAttendees"
+  },
+  {
+    "name": "Creategroup_137",
+    "title": "createGroup"
+  },
+  {
+    "name": "Updategroup_138",
+    "title": "updateGroup"
+  },
+  {
+    "name": "Deletegroup_139",
+    "title": "deleteGroup"
+  },
+  {
+    "name": "Getgroupsprocedure_140",
+    "title": "getGroupsProcedure"
+  },
+  {
+    "name": "Joingroup_141",
+    "title": "joinGroup"
+  },
+  {
+    "name": "Leavegroup_142",
+    "title": "leaveGroup"
+  },
+  {
+    "name": "Getgroupmembers_143",
+    "title": "getGroupMembers"
+  },
+  {
+    "name": "Createcommunity_144",
+    "title": "createCommunity"
+  },
+  {
+    "name": "Updatecommunity_145",
+    "title": "updateCommunity"
+  },
+  {
+    "name": "Deletecommunity_146",
+    "title": "deleteCommunity"
+  },
+  {
+    "name": "Getcommunities_147",
+    "title": "getCommunities"
+  },
+  {
+    "name": "Joincommunity_148",
+    "title": "joinCommunity"
+  },
+  {
+    "name": "Leavecommunity_149",
+    "title": "leaveCommunity"
+  },
+  {
+    "name": "Getcommunitymembers_150",
+    "title": "getCommunityMembers"
+  },
+  {
+    "name": "Createrule_151",
+    "title": "createRule"
+  },
+  {
+    "name": "Updaterule_152",
+    "title": "updateRule"
+  },
+  {
+    "name": "Deleteruleprocedure_153",
+    "title": "deleteRuleProcedure"
+  },
+  {
+    "name": "Getrulesprocedure_154",
+    "title": "getRulesProcedure"
+  },
+  {
+    "name": "Enforceruleprocedure_155",
+    "title": "enforceRuleProcedure"
+  },
+  {
+    "name": "Createmoderationcase_156",
+    "title": "createModerationCase"
+  },
+  {
+    "name": "Updatemoderationcase_157",
+    "title": "updateModerationCase"
+  },
+  {
+    "name": "Resolvemoderationcase_158",
+    "title": "resolveModerationCase"
+  },
+  {
+    "name": "Getmoderationcases_159",
+    "title": "getModerationCases"
+  },
+  {
+    "name": "Banuserprocedure_160",
+    "title": "banUserProcedure"
+  },
+  {
+    "name": "Unbanuserprocedure_161",
+    "title": "unbanUserProcedure"
+  },
+  {
+    "name": "Getbannedusers_162",
+    "title": "getBannedUsers"
+  },
+  {
+    "name": "Createauditlog_163",
+    "title": "createAuditLog"
+  },
+  {
+    "name": "Getauditlogs_164",
+    "title": "getAuditLogs"
+  },
+  {
+    "name": "Exportauditlogsprocedure_165",
+    "title": "exportAuditLogsProcedure"
+  },
+  {
+    "name": "Deletefeatureflag_166",
+    "title": "deleteFeatureFlag"
+  },
+  {
+    "name": "Getfeatureflags_167",
+    "title": "getFeatureFlags"
+  },
+  {
+    "name": "Enablefeatureflag_168",
+    "title": "enableFeatureFlag"
+  },
+  {
+    "name": "Disablefeatureflag_169",
+    "title": "disableFeatureFlag"
+  },
+  {
+    "name": "Createintegration_170",
+    "title": "createIntegration"
+  },
+  {
+    "name": "Updateintegration_171",
+    "title": "updateIntegration"
+  },
+  {
+    "name": "Deleteintegration_172",
+    "title": "deleteIntegration"
+  },
+  {
+    "name": "Testintegration_173",
+    "title": "testIntegration"
+  },
+  {
+    "name": "Syncintegration_174",
+    "title": "syncIntegration"
+  },
+  {
+    "name": "Createwebhook_175",
+    "title": "createWebhook"
+  },
+  {
+    "name": "Updatewebhook_176",
+    "title": "updateWebhook"
+  },
+  {
+    "name": "Deletewebhook_177",
+    "title": "deleteWebhook"
+  },
+  {
+    "name": "Getwebhooks_178",
+    "title": "getWebhooks"
+  },
+  {
+    "name": "Testwebhook_179",
+    "title": "testWebhook"
+  },
+  {
+    "name": "Getwebhooklogs_180",
+    "title": "getWebhookLogs"
+  },
+  {
+    "name": "Createscheduledtask_181",
+    "title": "createScheduledTask"
+  },
+  {
+    "name": "Updatescheduledtask_182",
+    "title": "updateScheduledTask"
+  },
+  {
+    "name": "Deletescheduledtask_183",
+    "title": "deleteScheduledTask"
+  },
+  {
+    "name": "Getscheduledtasks_184",
+    "title": "getScheduledTasks"
+  },
+  {
+    "name": "Executescheduledtask_185",
+    "title": "executeScheduledTask"
+  },
+  {
+    "name": "Gettasklogs_186",
+    "title": "getTaskLogs"
+  },
+  {
+    "name": "Createbackup_187",
+    "title": "createBackup"
+  },
+  {
+    "name": "Restorebackup_188",
+    "title": "restoreBackup"
+  },
+  {
+    "name": "Getbackups_189",
+    "title": "getBackups"
+  },
+  {
+    "name": "Deletebackup_190",
+    "title": "deleteBackup"
+  },
+  {
+    "name": "Schedulebackup_191",
+    "title": "scheduleBackup"
+  },
+  {
+    "name": "Getbackuplogs_192",
+    "title": "getBackupLogs"
+  },
+  {
+    "name": "Updateapikey_193",
+    "title": "updateAPIKey"
+  },
+  {
+    "name": "Deleteapikey_194",
+    "title": "deleteAPIKey"
+  },
+  {
+    "name": "Getapikeys_195",
+    "title": "getAPIKeys"
+  },
+  {
+    "name": "Rotateapikey_196",
+    "title": "rotateAPIKey"
+  },
+  {
+    "name": "Getapikeyusage_197",
+    "title": "getAPIKeyUsage"
+  },
+  {
+    "name": "Createoauthapp_198",
+    "title": "createOAuthApp"
+  },
+  {
+    "name": "Updateoauthapp_199",
+    "title": "updateOAuthApp"
+  },
+  {
+    "name": "Getoauthapps_200",
+    "title": "getOAuthApps"
+  },
+  {
+    "name": "Revokeoauthtoken_201",
+    "title": "revokeOAuthToken"
+  },
+  {
+    "name": "Getoauthtokens_202",
+    "title": "getOAuthTokens"
+  },
+  {
+    "name": "Createrole_203",
+    "title": "createRole"
+  },
+  {
+    "name": "Updaterole_204",
+    "title": "updateRole"
+  },
+  {
+    "name": "Deleterole_205",
+    "title": "deleteRole"
+  },
+  {
+    "name": "Getroles_206",
+    "title": "getRoles"
+  },
+  {
+    "name": "Assignrole_207",
+    "title": "assignRole"
+  },
+  {
+    "name": "Removerole_208",
+    "title": "removeRole"
+  },
+  {
+    "name": "Createpermission_209",
+    "title": "createPermission"
+  },
+  {
+    "name": "Updatepermission_210",
+    "title": "updatePermission"
+  },
+  {
+    "name": "Deletepermission_211",
+    "title": "deletePermission"
+  },
+  {
+    "name": "Getpermissions_212",
+    "title": "getPermissions"
+  },
+  {
+    "name": "Assignpermission_213",
+    "title": "assignPermission"
+  },
+  {
+    "name": "Removepermission_214",
+    "title": "removePermission"
+  },
+  {
+    "name": "Createteam_215",
+    "title": "createTeam"
+  },
+  {
+    "name": "Updateteam_216",
+    "title": "updateTeam"
+  },
+  {
+    "name": "Deleteteam_217",
+    "title": "deleteTeam"
+  },
+  {
+    "name": "Getteams_218",
+    "title": "getTeams"
+  },
+  {
+    "name": "Addteammember_219",
+    "title": "addTeamMember"
+  },
+  {
+    "name": "Removeteammember_220",
+    "title": "removeTeamMember"
+  },
+  {
+    "name": "Getteammembers_221",
+    "title": "getTeamMembers"
+  },
+  {
+    "name": "Createorganization_222",
+    "title": "createOrganization"
+  },
+  {
+    "name": "Updateorganization_223",
+    "title": "updateOrganization"
+  },
+  {
+    "name": "Deleteorganization_224",
+    "title": "deleteOrganization"
+  },
+  {
+    "name": "Getorganizations_225",
+    "title": "getOrganizations"
+  },
+  {
+    "name": "Addorganizationmember_226",
+    "title": "addOrganizationMember"
+  },
+  {
+    "name": "Removeorganizationmember_227",
+    "title": "removeOrganizationMember"
+  },
+  {
+    "name": "Getorganizationmembers_228",
+    "title": "getOrganizationMembers"
+  },
+  {
+    "name": "Createdepartment_229",
+    "title": "createDepartment"
+  },
+  {
+    "name": "Updatedepartment_230",
+    "title": "updateDepartment"
+  },
+  {
+    "name": "Deletedepartment_231",
+    "title": "deleteDepartment"
+  },
+  {
+    "name": "Getdepartments_232",
+    "title": "getDepartments"
+  },
+  {
+    "name": "Adddepartmentmember_233",
+    "title": "addDepartmentMember"
+  },
+  {
+    "name": "Removedepartmentmember_234",
+    "title": "removeDepartmentMember"
+  },
+  {
+    "name": "Getdepartmentmembers_235",
+    "title": "getDepartmentMembers"
+  },
+  {
+    "name": "Createproject_236",
+    "title": "createProject"
+  },
+  {
+    "name": "Updateproject_237",
+    "title": "updateProject"
+  },
+  {
+    "name": "Deleteproject_238",
+    "title": "deleteProject"
+  },
+  {
+    "name": "Getprojects_239",
+    "title": "getProjects"
+  },
+  {
+    "name": "Addprojectmember_240",
+    "title": "addProjectMember"
+  },
+  {
+    "name": "Removeprojectmember_241",
+    "title": "removeProjectMember"
+  },
+  {
+    "name": "Getprojectmembers_242",
+    "title": "getProjectMembers"
+  },
+  {
+    "name": "Createtask_243",
+    "title": "createTask"
+  },
+  {
+    "name": "Updatetask_244",
+    "title": "updateTask"
+  },
+  {
+    "name": "Deletetask_245",
+    "title": "deleteTask"
+  },
+  {
+    "name": "Gettasks_246",
+    "title": "getTasks"
+  },
+  {
+    "name": "Assigntask_247",
+    "title": "assignTask"
+  },
+  {
+    "name": "Completetask_248",
+    "title": "completeTask"
+  },
+  {
+    "name": "Gettaskhistory_249",
+    "title": "getTaskHistory"
+  },
+  {
+    "name": "Createmilestone_250",
+    "title": "createMilestone"
+  },
+  {
+    "name": "Updatemilestone_251",
+    "title": "updateMilestone"
+  },
+  {
+    "name": "Deletemilestone_252",
+    "title": "deleteMilestone"
+  },
+  {
+    "name": "Getmilestones_253",
+    "title": "getMilestones"
+  },
+  {
+    "name": "Completemilestone_254",
+    "title": "completeMilestone"
+  },
+  {
+    "name": "Getmilestoneprogress_255",
+    "title": "getMilestoneProgress"
+  },
+  {
+    "name": "Createbudget_256",
+    "title": "createBudget"
+  },
+  {
+    "name": "Updatebudget_257",
+    "title": "updateBudget"
+  },
+  {
+    "name": "Deletebudget_258",
+    "title": "deleteBudget"
+  },
+  {
+    "name": "Getbudgets_259",
+    "title": "getBudgets"
+  },
+  {
+    "name": "Trackbudgetspending_260",
+    "title": "trackBudgetSpending"
+  },
+  {
+    "name": "Getbudgetreports_261",
+    "title": "getBudgetReports"
+  },
+  {
+    "name": "Createexpense_262",
+    "title": "createExpense"
+  },
+  {
+    "name": "Deleteexpense_263",
+    "title": "deleteExpense"
+  },
+  {
+    "name": "Getexpensesprocedure_264",
+    "title": "getExpensesProcedure"
+  },
+  {
+    "name": "Categorizeexpense_265",
+    "title": "categorizeExpense"
+  },
+  {
+    "name": "Getexpensereports_266",
+    "title": "getExpenseReports"
+  },
+  {
+    "name": "Createinvoice_267",
+    "title": "createInvoice"
+  },
+  {
+    "name": "Updateinvoice_268",
+    "title": "updateInvoice"
+  },
+  {
+    "name": "Deleteinvoice_269",
+    "title": "deleteInvoice"
+  },
+  {
+    "name": "Sendinvoice_270",
+    "title": "sendInvoice"
+  },
+  {
+    "name": "Payinvoice_271",
+    "title": "payInvoice"
+  },
+  {
+    "name": "Getinvoicepayments_272",
+    "title": "getInvoicePayments"
+  },
+  {
+    "name": "Updatequoteprocedure_273",
+    "title": "updateQuoteProcedure"
+  },
+  {
+    "name": "Deletequote_274",
+    "title": "deleteQuote"
+  },
+  {
+    "name": "Getquotes_275",
+    "title": "getQuotes"
+  },
+  {
+    "name": "Convertquotetoinvoice_276",
+    "title": "convertQuoteToInvoice"
+  },
+  {
+    "name": "Getquotehistory_277",
+    "title": "getQuoteHistory"
+  },
+  {
+    "name": "Createcontract_278",
+    "title": "createContract"
+  },
+  {
+    "name": "Updatecontract_279",
+    "title": "updateContract"
+  },
+  {
+    "name": "Deletecontract_280",
+    "title": "deleteContract"
+  },
+  {
+    "name": "Getcontracts_281",
+    "title": "getContracts"
+  },
+  {
+    "name": "Signcontract_282",
+    "title": "signContract"
+  },
+  {
+    "name": "Getcontractsignatures_283",
+    "title": "getContractSignatures"
+  },
+  {
+    "name": "Createdocument_284",
+    "title": "createDocument"
+  },
+  {
+    "name": "Updatedocument_285",
+    "title": "updateDocument"
+  },
+  {
+    "name": "Deletedocument_286",
+    "title": "deleteDocument"
+  },
+  {
+    "name": "Getdocuments_287",
+    "title": "getDocuments"
+  },
+  {
+    "name": "Sharedocumentprocedure_288",
+    "title": "shareDocumentProcedure"
+  },
+  {
+    "name": "Getdocumentversions_289",
+    "title": "getDocumentVersions"
+  },
+  {
+    "name": "Createtemplate_290",
+    "title": "createTemplate"
+  },
+  {
+    "name": "Updatetemplate_291",
+    "title": "updateTemplate"
+  },
+  {
+    "name": "Deletetemplate_292",
+    "title": "deleteTemplate"
+  },
+  {
+    "name": "Gettemplates_293",
+    "title": "getTemplates"
+  },
+  {
+    "name": "Usetemplate_294",
+    "title": "useTemplate"
+  },
+  {
+    "name": "Createworkflow_295",
+    "title": "createWorkflow"
+  },
+  {
+    "name": "Updateworkflow_296",
+    "title": "updateWorkflow"
+  },
+  {
+    "name": "Deleteworkflow_297",
+    "title": "deleteWorkflow"
+  },
+  {
+    "name": "Getworkflows_298",
+    "title": "getWorkflows"
+  },
+  {
+    "name": "Executeworkflow_299",
+    "title": "executeWorkflow"
+  },
+  {
+    "name": "Getworkflowhistory_300",
+    "title": "getWorkflowHistory"
+  },
+  {
+    "name": "Createautomation_301",
+    "title": "createAutomation"
+  },
+  {
+    "name": "Updateautomation_302",
+    "title": "updateAutomation"
+  },
+  {
+    "name": "Deleteautomation_303",
+    "title": "deleteAutomation"
+  },
+  {
+    "name": "Getautomations_304",
+    "title": "getAutomations"
+  },
+  {
+    "name": "Triggerautomationprocedure_305",
+    "title": "triggerAutomationProcedure"
+  },
+  {
+    "name": "Getautomationlogs_306",
+    "title": "getAutomationLogs"
+  }
+]
