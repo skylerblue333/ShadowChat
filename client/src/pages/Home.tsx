@@ -24,6 +24,32 @@ function useCountUp(target: number, duration = 1500) {
   }, [target, duration]);
   return count;
 }
+
+// Crypto Ticker Hook
+function useCryptoTicker() {
+  const [prices, setPrices] = useState({
+    BTC: { price: 67420, change: 2.34 },
+    ETH: { price: 3891, change: 1.12 },
+    SKY4444: { price: 4.44, change: 44.44 },
+    DOGE: { price: 0.38, change: 5.67 },
+    TRUMP: { price: 12.89, change: 8.92 }
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPrices(prev => ({
+        BTC: { price: prev.BTC.price + (Math.random() - 0.5) * 200, change: prev.BTC.change + (Math.random() - 0.5) * 2 },
+        ETH: { price: prev.ETH.price + (Math.random() - 0.5) * 50, change: prev.ETH.change + (Math.random() - 0.5) * 2 },
+        SKY4444: { price: prev.SKY4444.price + (Math.random() - 0.5) * 0.5, change: prev.SKY4444.change + (Math.random() - 0.5) * 5 },
+        DOGE: { price: prev.DOGE.price + (Math.random() - 0.5) * 0.05, change: prev.DOGE.change + (Math.random() - 0.5) * 3 },
+        TRUMP: { price: prev.TRUMP.price + (Math.random() - 0.5) * 1, change: prev.TRUMP.change + (Math.random() - 0.5) * 4 }
+      }));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return prices;
+}
 import {
   Users,
   TrendingUp,
@@ -189,6 +215,7 @@ export default function Home() {
   const totalLOC = 305021;
   const totalPages = 350;
   const totalServices = 6;
+  const prices = useCryptoTicker();
   return (
     <div className="min-h-screen">
       {/* ═══════════════════════════════════════════════════════════════
@@ -200,6 +227,47 @@ export default function Home() {
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[oklch(0.72_0.28_340)] opacity-[0.03] blur-[120px]" />
 
         <div className="container relative z-10 text-center">
+          {/* Crypto Ticker */}
+          <div className="mb-8 overflow-hidden">
+            <div className="flex gap-8 justify-center items-center text-sm font-mono whitespace-nowrap animate-pulse">
+              <div className="flex items-center gap-2">
+                <span className="text-amber-400 font-bold">₿ BTC</span>
+                <span className="text-white/80">${prices.BTC.price.toFixed(0)}</span>
+                <span className={prices.BTC.change > 0 ? 'text-green-400' : 'text-red-400'}>
+                  {prices.BTC.change > 0 ? '+' : ''}{prices.BTC.change.toFixed(2)}%
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-400 font-bold">Ξ ETH</span>
+                <span className="text-white/80">${prices.ETH.price.toFixed(0)}</span>
+                <span className={prices.ETH.change > 0 ? 'text-green-400' : 'text-red-400'}>
+                  {prices.ETH.change > 0 ? '+' : ''}{prices.ETH.change.toFixed(2)}%
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-amber-500 font-bold">SKY4444</span>
+                <span className="text-white/80">${prices.SKY4444.price.toFixed(2)}</span>
+                <span className={prices.SKY4444.change > 0 ? 'text-green-400' : 'text-red-400'}>
+                  {prices.SKY4444.change > 0 ? '+' : ''}{prices.SKY4444.change.toFixed(2)}%
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-400 font-bold">DOGE</span>
+                <span className="text-white/80">${prices.DOGE.price.toFixed(2)}</span>
+                <span className={prices.DOGE.change > 0 ? 'text-green-400' : 'text-red-400'}>
+                  {prices.DOGE.change > 0 ? '+' : ''}{prices.DOGE.change.toFixed(2)}%
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-red-400 font-bold">TRUMP</span>
+                <span className="text-white/80">${prices.TRUMP.price.toFixed(2)}</span>
+                <span className={prices.TRUMP.change > 0 ? 'text-green-400' : 'text-red-400'}>
+                  {prices.TRUMP.change > 0 ? '+' : ''}{prices.TRUMP.change.toFixed(2)}%
+                </span>
+              </div>
+            </div>
+          </div>
+
           {/* 🗳️ Vote #1 Announcement Banner */}
           <div className="mb-6 flex justify-center">
             <a href="/governance" className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-green-500/40 bg-green-500/10 hover:bg-green-500/20 transition-all duration-200 cursor-pointer">
@@ -331,7 +399,7 @@ export default function Home() {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             {/* Primary: Create Account with token airdrop */}
             <div className="flex flex-col items-center gap-1">
               <a href={getLoginUrl()}>
@@ -355,7 +423,7 @@ export default function Home() {
                 Talk to Hope AI
               </Button>
             </Link>
-            <Link href="/ecosystem">
+            <Link href="/home">
               <Button size="lg" className="bg-[oklch(0.72_0.28_305)] hover:bg-[oklch(0.65_0.28_305)] text-black font-semibold gap-2 h-12 px-6">
                 <Rocket className="w-5 h-5" />
                 Explore Ecosystem
@@ -454,9 +522,9 @@ export default function Home() {
                 <div className="relative shrink-0">
                   <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden shadow-2xl shadow-[oklch(0.72_0.28_305)]/25 border-2 border-[oklch(0.72_0.28_305)]/30">
                     <img
-                      src="/manus-storage/skyler-spillers-profile_06dba1f2.png"
+                      src="/manus-storage/ScreenShot2025-11-13at3.09.21AM_19c822c6.png"
                       alt="Skyler Blue Spillers"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 border-2 border-background flex items-center justify-center">
