@@ -77,10 +77,11 @@ async function startServer() {
   app.post("/api/stripe/webhook", express.raw({ type: "application/json" }), async (req: Request, res: Response) => {
     const sig = req.headers["stripe-signature"] as string;
     const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-    if (!webhookSecret) { res.status(400).json({ error: "Webhook secret not configured" }); return; }
+    const stripeKey = process.env.STRIPE_SECRET_KEY;
+    if (!webhookSecret || !stripeKey) { res.status(400).json({ error: "Stripe not configured" }); return; }
     try {
       const Stripe = (await import("stripe")).default;
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
+      const stripe = new Stripe(stripeKey);
       const event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
       if (event.id.startsWith("evt_test_")) { console.log("[Webhook] Test event detected"); res.json({ verified: true }); return; }
       console.log(`[Stripe Webhook] ${event.type} — ${event.id}`);
@@ -98,6 +99,13 @@ async function startServer() {
   registerStorageProxy(app);
   app.use("/api/oauth", authLimiter);
   registerOAuthRoutes(app);
+  
+  // Health check endpoint for Stripe configuration
+  app.get("/api/stripe/health", (_req: Request, res: Response) => {
+    const hasKey = !!process.env.STRIPE_SECRET_KEY;
+    const hasWebhook = !!process.env.STRIPE_WEBHOOK_SECRET;
+    res.json({ stripe: { configured: hasKey && hasWebhook, key: hasKey, webhook: hasWebhook } });
+  });
   app.use("/api/upload", uploadLimiter);
 
   app.post("/api/scheduled/sprint", async (req: Request, res: Response) => {

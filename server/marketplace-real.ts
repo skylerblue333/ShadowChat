@@ -1,14 +1,22 @@
 // SKYCOIN4444 - Real Marketplace with Stripe Payments
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
+let stripe: Stripe | null = null;
+function getStripe(): Stripe | null {
+  if (!stripe && process.env.STRIPE_SECRET_KEY) {
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  }
+  return stripe;
+}
 
 export async function createCheckoutSession(
   userId: string,
   items: Array<{ productId: string; quantity: number; price: number }>
 ) {
   try {
-    const session = await stripe.checkout.sessions.create({
+    const stripeClient = getStripe();
+    if (!stripeClient) throw new Error("Stripe not configured");
+    const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: items.map(item => ({
         price_data: {

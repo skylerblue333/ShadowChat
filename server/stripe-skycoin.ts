@@ -4,10 +4,13 @@ import { getDb } from "./db";
 import { orders, subscriptions } from "../drizzle";
 import { eq } from "drizzle-orm";
 
-// Initialize Stripe only if API key is provided
+// Lazy initialize Stripe only when needed
 let stripe: Stripe | null = null;
-if (process.env.STRIPE_SECRET_KEY) {
-  stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+function getStripe(): Stripe | null {
+  if (!stripe && process.env.STRIPE_SECRET_KEY) {
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  }
+  return stripe;
 }
 
 export const STRIPE_PLANS = {
@@ -28,8 +31,9 @@ export async function createCheckoutSession(
   cancelUrl: string
 ) {
   try {
-    if (!stripe) throw new Error("Stripe not configured");
-    const session = await stripe.checkout.sessions.create({
+    const stripeClient = getStripe();
+    if (!stripeClient) throw new Error("Stripe not configured");
+    const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
         {
@@ -75,13 +79,14 @@ export async function createOrUpdateSubscription(
   plan: "pro" | "enterprise"
 ) {
   try {
-    if (!stripe) throw new Error("Stripe not configured");
+    const stripeClient = getStripe();
+    if (!stripeClient) throw new Error("Stripe not configured");
     const planConfig = STRIPE_PLANS[plan];
     if (!planConfig.priceId) {
       throw new Error(`Stripe price ID not configured for plan: ${plan}`);
     }
 
-    const sub = await stripe.subscriptions.create({
+    const sub = await stripeClient.subscriptions.create({
       customer: stripeCustomerId,
       items: [{ price: planConfig.priceId }],
       metadata: {
@@ -114,7 +119,8 @@ export async function createOrUpdateSubscription(
 
 export async function cancelSubscription(userId: number) {
   try {
-    if (!stripe) throw new Error("Stripe not configured");
+    const stripeClient = getStripe();
+    if (!stripeClient) throw new Error("Stripe not configured");
     const db = await getDb();
     if (!db) throw new Error("Database not available");
 
@@ -128,7 +134,7 @@ export async function cancelSubscription(userId: number) {
       throw new Error("Subscription not found");
     }
 
-    await stripe.subscriptions.cancel(sub[0].stripeSubscriptionId);
+    await stripeClient.subscriptions.cancel(sub[0].stripeSubscriptionId);
 
     await db
       .update(subscriptions)
@@ -146,8 +152,9 @@ export async function cancelSubscription(userId: number) {
 // ─── CUSTOMER MANAGEMENT ────────────────────────────────────────────────
 export async function getOrCreateCustomer(userId: number, email: string, name?: string) {
   try {
-    if (!stripe) throw new Error("Stripe not configured");
-    const customers = await stripe.customers.list({
+    const stripeClient = getStripe();
+    if (!stripeClient) throw new Error("Stripe not configured");
+    const customers = await stripeClient.customers.list({
       email,
       limit: 1,
     });
@@ -156,7 +163,7 @@ export async function getOrCreateCustomer(userId: number, email: string, name?: 
       return customers.data[0];
     }
 
-    const customer = await stripe!.customers.create({
+    const customer = await stripeClient.customers.create({
       email,
       name,
       metadata: {
@@ -174,7 +181,6 @@ export async function getOrCreateCustomer(userId: number, email: string, name?: 
 // ─── WEBHOOK HANDLERS ───────────────────────────────────────────────────
 export async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) {
   try {
-    if (!stripe) return;
     const orderId = parseInt(session.metadata?.orderId || "0");
     const userId = parseInt(session.metadata?.userId || "0");
 
@@ -199,9 +205,10 @@ export async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Se
 
 export async function handleInvoicePaid(invoice: Stripe.Invoice) {
   try {
-    if (!stripe) return;
+    const stripeClient = getStripe();
+    if (!stripeClient) return;
     const customerId = invoice.customer as string;
-    const customer = (await stripe.customers.retrieve(customerId)) as Stripe.Customer;
+    const customer = (await stripeClient.customers.retrieve(customerId)) as Stripe.Customer;
 
     if (!customer.metadata?.userId) {
       throw new Error("User ID not found in customer metadata");
@@ -225,9 +232,10 @@ export async function handleInvoicePaid(invoice: Stripe.Invoice) {
 
 export async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
   try {
-    if (!stripe) return;
+    const stripeClient = getStripe();
+    if (!stripeClient) return;
     const customerId = subscription.customer as string;
-    const customer = (await stripe.customers.retrieve(customerId)) as Stripe.Customer;
+    const customer = (await stripeClient.customers.retrieve(customerId)) as Stripe.Customer;
 
     if (!customer.metadata?.userId) {
       throw new Error("User ID not found in customer metadata");
@@ -258,9 +266,10 @@ export async function handleSubscriptionUpdated(subscription: Stripe.Subscriptio
 
 export async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   try {
-    if (!stripe) return;
+    const stripeClient = getStripe();
+    if (!stripeClient) return;
     const customerId = subscription.customer as string;
-    const customer = (await stripe.customers.retrieve(customerId)) as Stripe.Customer;
+    const customer = (await stripeClient.customers.retrieve(customerId)) as Stripe.Customer;
 
     if (!customer.metadata?.userId) {
       throw new Error("User ID not found in customer metadata");
@@ -292,8 +301,9 @@ export function verifyWebhookSignature(
   secret: string
 ): Stripe.Event | null {
   try {
-    if (!stripe) return null;
-    return stripe.webhooks.constructEvent(body, signature, secret);
+    const stripeClient = getStripe();
+    if (!stripeClient) return null;
+    return stripeClient.webhooks.constructEvent(body, signature, secret);
   } catch (error) {
     console.error("[Stripe] Webhook signature verification failed:", error);
     return null;

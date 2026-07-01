@@ -16,6 +16,6 @@ describe('Secrets Validation', () => {
   it('should have Coinbase private key configured', () => {
     const key = process.env.COINBASE_PRIVATE_KEY;
     expect(key).toBeDefined();
-    expect(key!.length).toBeGreaterThan(0);
+    expect(key.length).toBeGreaterThan(0);
   });
 });
