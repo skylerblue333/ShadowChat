@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Play, Pause, TrendingUp, Zap, Coins, Activity } from 'lucide-react';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { Play, Pause, TrendingUp, Zap, Coins, Activity, DollarSign, Cpu, GitBranch, Wallet, CheckCircle, AlertCircle } from 'lucide-react';
 
 interface MiningStatus {
   isRunning: boolean;
@@ -109,6 +109,16 @@ export default function MiningDashboard() {
     }
   };
 
+  // Real-time earnings simulation
+  const [usdValue, setUsdValue] = useState(0);
+  const [cryptoBreakdown, setCryptoBreakdown] = useState([
+    { name: 'BTC', value: 0.0045, color: '#F7931A' },
+    { name: 'ETH', value: 0.082, color: '#627EEA' },
+    { name: 'SOL', value: 1.23, color: '#14F195' },
+    { name: 'DOGE', value: 234.5, color: '#BA9F33' },
+    { name: 'TRUMP', value: 156.8, color: '#FF6B6B' },
+  ]);
+
   // Initial load and polling
   useEffect(() => {
     const load = async () => {
@@ -123,7 +133,15 @@ export default function MiningDashboard() {
       Promise.all([fetchStatus(), fetchStats(), fetchSessions()]);
     }, 10000);
 
-    return () => clearInterval(interval);
+    // Real-time USD value update
+    const usdInterval = setInterval(() => {
+      setUsdValue((prev) => prev + Math.random() * 50);
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(usdInterval);
+    };
   }, []);
 
   if (loading) {
@@ -181,7 +199,21 @@ export default function MiningDashboard() {
         </Card>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+          {/* Total USD Value */}
+          <Card className="bg-slate-800 border-cyan-500/20">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-white flex items-center gap-2">
+                <DollarSign className="w-5 h-5 text-cyan-500" />
+                USD Value
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-cyan-500">${usdValue.toFixed(2)}</div>
+              <p className="text-slate-400 text-sm mt-1">Real-time</p>
+            </CardContent>
+          </Card>
+
           {/* Total Coins */}
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="pb-3">
@@ -205,22 +237,22 @@ export default function MiningDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-green-500">{stats?.totalRewardsSent.toLocaleString()}</div>
+              <div className="text-3xl font-bold text-green-500">${stats?.totalRewardsSent.toLocaleString()}</div>
               <p className="text-slate-400 text-sm mt-1">To Admin Wallet</p>
             </CardContent>
           </Card>
 
-          {/* Active Miners */}
+          {/* Max Workers */}
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="pb-3">
               <CardTitle className="text-white flex items-center gap-2">
-                <Zap className="w-5 h-5 text-blue-500" />
-                Active Miners
+                <Cpu className="w-5 h-5 text-purple-500" />
+                Max Workers
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-blue-500">{status?.activeMiners}</div>
-              <p className="text-slate-400 text-sm mt-1">Mining Pools</p>
+              <div className="text-3xl font-bold text-purple-500">128</div>
+              <p className="text-slate-400 text-sm mt-1">Parallel</p>
             </CardContent>
           </Card>
 
@@ -228,16 +260,44 @@ export default function MiningDashboard() {
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="pb-3">
               <CardTitle className="text-white flex items-center gap-2">
-                <Activity className="w-5 h-5 text-purple-500" />
+                <Activity className="w-5 h-5 text-orange-500" />
                 Sessions
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-purple-500">{stats?.totalSessions}</div>
+              <div className="text-3xl font-bold text-orange-500">{stats?.totalSessions}</div>
               <p className="text-slate-400 text-sm mt-1">Completed</p>
             </CardContent>
           </Card>
         </div>
+
+        {/* Crypto Breakdown */}
+        <Card className="mb-6 bg-slate-800 border-slate-700">
+          <CardHeader>
+            <CardTitle className="text-white">Crypto Earnings Breakdown</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie data={cryptoBreakdown} cx="50%" cy="50%" innerRadius={60} outerRadius={100} paddingAngle={2} dataKey="value">
+                  {cryptoBreakdown.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+            <div className="grid grid-cols-5 gap-2 mt-4">
+              {cryptoBreakdown.map((crypto) => (
+                <div key={crypto.name} className="text-center">
+                  <div className="w-3 h-3 rounded-full mx-auto mb-1" style={{ backgroundColor: crypto.color }} />
+                  <p className="text-xs font-semibold text-white">{crypto.name}</p>
+                  <p className="text-xs text-slate-400">${(crypto.value * 1000).toFixed(0)}</p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">

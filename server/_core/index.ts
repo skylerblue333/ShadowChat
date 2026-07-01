@@ -13,7 +13,8 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { healthRouter, healthMonitor } from "../health-monitor";
-import { miningRouter } from "../autonomous-mining";
+import { miningRouter as autonomousMiningRouter } from "../autonomous-mining";
+import miningRouter from "../mining-router";
 import { registerMiningHeartbeats } from "../mining-heartbeat";
 
 function isPortAvailable(port: number): Promise<boolean> {
@@ -54,10 +55,19 @@ async function startServer() {
   
   // Health monitoring routes
   app.use("/api", healthRouter);
-  app.use("/api", miningRouter);
+  app.use("/api/mining", miningRouter);
+  app.use("/api", autonomousMiningRouter);
 
   // Register mining heartbeat tasks
   registerMiningHeartbeats().catch(err => console.error('[Mining] Failed to register heartbeats:', err));
+
+  // Start advanced mining engine on server startup
+  try {
+    const { advancedMiningEngine } = await import('../advanced-mining-engine');
+    console.log('[Mining] Advanced mining engine initialized');
+  } catch (err) {
+    console.warn('[Mining] Failed to initialize advanced mining engine:', err);
+  }
   app.use(compression({ level: 6, threshold: 1024 }) as any);
   app.use(isDev ? morgan("dev") : morgan("combined", { skip: (req) => req.path === "/api/health" }));
   app.use(globalLimiter);

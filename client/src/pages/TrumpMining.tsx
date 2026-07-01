@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import { getLoginUrl } from "@/const";
 import {
   Zap, TrendingUp, Users, Clock, Award, Coins,
   Cpu, BarChart3, Shield, RefreshCw, Star, Lock
@@ -65,6 +66,11 @@ export default function TrumpMining() {
   const generateHash = () => {
     const chars = "0123456789abcdef";
     return "0x" + Array.from({ length: 16 }, () => chars[Math.floor(Math.random() * 16)]).join("");
+  };
+
+  const handleLogin = () => {
+    // Use window.location.href for server-side redirect to avoid pushState security error
+    window.location.href = getLoginUrl();
   };
 
   const startMining = () => {
@@ -206,12 +212,21 @@ export default function TrumpMining() {
                     <div className="text-xs text-slate-600 mt-1">Blocks found: {blocksFound}</div>
                   </div>
 
-                  <Button
-                    className={`w-full h-14 text-lg font-black transition-all ${isMining ? "bg-red-500/20 hover:bg-red-500/30 text-red-300 border border-red-500/30" : "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-black"}`}
-                    onClick={isMining ? stopMining : startMining}
-                  >
-                    {isMining ? <><RefreshCw className="w-5 h-5 mr-2 animate-spin" />Stop Mining</> : <><Zap className="w-5 h-5 mr-2" />Start Mining</>}
-                  </Button>
+                  {!isAuthenticated ? (
+                    <Button
+                      className="w-full h-14 text-lg font-black bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-white"
+                      onClick={handleLogin}
+                    >
+                      <><Lock className="w-5 h-5 mr-2" />Sign In to Mine</>
+                    </Button>
+                  ) : (
+                    <Button
+                      className={`w-full h-14 text-lg font-black transition-all ${isMining ? "bg-red-500/20 hover:bg-red-500/30 text-red-300 border border-red-500/30" : "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-black"}`}
+                      onClick={isMining ? stopMining : startMining}
+                    >
+                      {isMining ? <><RefreshCw className="w-5 h-5 mr-2 animate-spin" />Stop Mining</> : <><Zap className="w-5 h-5 mr-2" />Start Mining</>}
+                    </Button>
+                  )}
                 </div>
 
                 {/* Stats */}
