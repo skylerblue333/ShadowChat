@@ -1,13 +1,7 @@
 // SKYCOIN4444 - Real Investor Portal with KYC & Payments
 import Stripe from "stripe";
 
-let stripe: Stripe | null = null;
-function getStripe(): Stripe | null {
-  if (!stripe && process.env.STRIPE_SECRET_KEY) {
-    stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-  }
-  return stripe;
-}
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
 
 export async function startKYCVerification(userId: string, email: string) {
   try {
@@ -39,9 +33,7 @@ export async function createICOCheckout(
   pricePerToken: number
 ) {
   try {
-    const stripeClient = getStripe();
-    if (!stripeClient) throw new Error("Stripe not configured");
-    const session = await stripeClient.checkout.sessions.create({
+    const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
         {

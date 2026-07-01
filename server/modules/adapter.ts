@@ -5,6 +5,7 @@
  */
 
 // Use native fetch in Node 18+
+import Stripe from 'stripe';
 import { invokeLLM } from '../_core/llm';
 
 // ─── CRYPTO MODULE ─────────────────────────────────────────────────────────
@@ -48,15 +49,11 @@ export function getMockMarketData() {
 
 // ─── STRIPE MODULE ────────────────────────────────────────────────────────
 
-let stripe: any = null;
-function getStripe() {
-  if (!stripe && process.env.STRIPE_SECRET_KEY) {
-    const Stripe = require('stripe').default;
-    stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2026-04-22.dahlia' as any,
-    });
-  }
-  return stripe;
+let stripe: Stripe | null = null;
+if (process.env.STRIPE_SECRET_KEY) {
+  stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2026-04-22.dahlia' as any,
+  });
 }
 
 export async function createStripeCheckoutSession(
@@ -65,7 +62,6 @@ export async function createStripeCheckoutSession(
   userId: number,
   userEmail: string
 ) {
-  const stripe = getStripe();
   if (!stripe) throw new Error('Stripe not configured');
 
   const session = await stripe.checkout.sessions.create({
@@ -96,7 +92,6 @@ export async function createStripeSubscription(
   userEmail: string,
   priceId: string
 ) {
-  const stripe = getStripe();
   if (!stripe) throw new Error('Stripe not configured');
 
   const customer = await stripe.customers.create({
