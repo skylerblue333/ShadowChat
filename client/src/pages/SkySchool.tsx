@@ -35,9 +35,9 @@ export default function SkySchoolFull() {
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [userProgress, setUserProgress] = useState<Record<string, number>>({});
 
-  const enrollMutation = trpc.skyschool.enroll.useMutation({
-    onSuccess: () => toast.success("Enrolled successfully!"),
-  });
+  const enrollMutation = trpc.skySchool?.enroll?.useMutation({
+    onSuccess: () => toast.success('Enrolled successfully!'),
+  }) || { mutate: () => {} };
 
   const filtered = COURSES.filter(c =>
     c.title.toLowerCase().includes(search.toLowerCase()) ||
