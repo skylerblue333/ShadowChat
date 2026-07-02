@@ -131,6 +131,9 @@ const MiningDashboard = lazy(() => import("./pages/MiningDashboard"));
 const PresentationWithChat = lazy(() => import("./pages/PresentationWithChat"));
 const DatingDiscovery = lazy(() => import("./pages/DatingDiscovery"));
 const DatingMessages = lazy(() => import("./pages/DatingMessages"));
+const DatingMatches = lazy(() => import("./pages/DatingMatches"));
+const DatingProfile = lazy(() => import("./pages/DatingProfile"));
+const DatingSubscription = lazy(() => import("./pages/DatingSubscription"));
 const DatingProfileSetup = lazy(() => import("./pages/DatingProfileSetup"));
 const AdminPanel = lazy(() => import("./pages/AdminPanel"));
 const AIModerationQueue = lazy(() => import("./pages/AIModerationQueue"));
@@ -359,7 +362,12 @@ function LegacyRouter() {
         {/* Dating & Social Matching */}
         <Route path="/dating/setup" component={DatingProfileSetup} />
         <Route path="/dating" component={DatingDiscovery} />
+        <Route path="/dating/discover" component={DatingDiscovery} />
         <Route path="/dating/messages" component={DatingMessages} />
+        <Route path="/dating/matches" component={DatingMatches} />
+        <Route path="/dating/profile" component={DatingProfile} />
+        <Route path="/dating/subscription" component={DatingSubscription} />
+        <Route path="/dating/premium" component={DatingSubscription} />
         <Route path="/admin-panel">{() => <Redirect to="/admin" />}</Route>
         <Route path="/admin/moderation" component={AIModerationQueue} />
           <Route path="/2fa" component={TwoFactorSetup} />
