@@ -69,7 +69,11 @@ export default function DatingProfile() {
       const data = await response.json();
       if (data.profile) {
         setProfile(data.profile);
-        setFormData(data.profile);
+        setFormData({
+          ...data.profile,
+          age: data.profile.age ? data.profile.age.toString() : '',
+          interests: Array.isArray(data.profile.interests) ? data.profile.interests : [],
+        });
       }
     } catch (error) {
       console.error('Failed to load profile:', error);
@@ -99,7 +103,11 @@ export default function DatingProfile() {
       });
       const data = await response.json();
       if (data.success) {
-        setProfile({ ...profile, ...formData } as DatingProfile);
+        setProfile({
+          ...profile,
+          ...formData,
+          age: parseInt(formData.age as string) || 0,
+        } as DatingProfile);
         setEditing(false);
       }
     } catch (error) {
