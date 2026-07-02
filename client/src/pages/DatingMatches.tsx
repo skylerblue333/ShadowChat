@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 import { useAuth } from '@/_core/hooks/useAuth';
+import { DatingNotificationToast } from '@/components/DatingNotificationToast';
 import { formatDistanceToNow } from 'date-fns';
 
 interface Match {
@@ -121,6 +122,7 @@ export default function DatingMatches() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DatingNotificationToast />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
           {/* Matches List */}
