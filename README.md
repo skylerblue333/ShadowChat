@@ -1,34 +1,23 @@
-# ShadowChat
+# 💬 ShadowChat
 
-A ShadowChat based project focused on ShadowChat.
+**ShadowChat** is a privacy-focused, real-time messaging platform built for speed and security.
 
-## 🚀 Overview
-This repository contains a professional implementation of **ShadowChat**. It is designed with clean code principles and focuses on functionality and reliability.
+## 🚀 Features
+- **Real-time Messaging**: Powered by WebSockets for instant communication.
+- **Privacy-Centric**: Designed with end-to-end encryption principles.
+- **Scalable Backend**: Built on Node.js and Redis for high concurrency.
+- **Cross-Platform**: Optimized for both web and mobile interfaces.
 
 ## 🛠️ Tech Stack
-- **Primary Language**: Unknown
-- **Environment**: Node.js / Python / Rust (as applicable)
-- **Key Features**: 
-  - Modular architecture
-  - Clean implementation of core logic
-  - Scalable design
+- **Language**: TypeScript
+- **Communication**: Socket.io / WebSockets
+- **State Management**: Redis
+- **Frontend**: React
 
-## 📂 Getting Started
-
-### Prerequisites
-- Ensure you have the latest version of the relevant runtime (Node.js, Python, or Rust) installed.
-
-### Installation
-```bash
-git clone https://github.com/skylerblue333/ShadowChat.git
-cd ShadowChat
-```
-
-### Usage
-Follow the specific language conventions to run the project (e.g., `npm install`, `cargo build`, or `pip install -r requirements.txt`).
-
-## 🛡️ License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📂 Installation
+1. Clone the repo: `git clone https://github.com/skylerblue333/ShadowChat.git`
+2. Install dependencies: `npm install`
+3. Start the server: `npm run start`
 
 ---
 Built by [Skyler Blue](https://github.com/skylerblue333)
