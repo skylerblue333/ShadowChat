@@ -41,7 +41,7 @@ const ROLES = [
 ];
 
 export default function Community() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const { data: communities, isLoading } = trpc.community.list.useQuery({});
   const [searchQuery, setSearchQuery] = useState("");
 

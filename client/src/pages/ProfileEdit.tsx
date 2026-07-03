@@ -26,7 +26,7 @@ const THEME_PRESETS = [
 ];
 
 export default function ProfileEdit() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [, navigate] = useLocation();
   const avatarInputRef = useRef<HTMLInputElement>(null);
   const bannerInputRef = useRef<HTMLInputElement>(null);

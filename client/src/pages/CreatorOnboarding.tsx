@@ -125,7 +125,7 @@ const CONTENT_TYPES = [
 ];
 
 export default function CreatorOnboarding() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [, navigate] = useLocation();
   const [checklist, setChecklist] = useState(CHECKLIST);
   const completedCount = checklist.filter(c => c.completed).length;

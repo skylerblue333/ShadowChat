@@ -160,7 +160,7 @@ const CATEGORIES = [
 ];
 
 export default function AIToolsHub() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [activeCategory, setActiveCategory] = useState("all");
   const [query, setQuery] = useState("");
 

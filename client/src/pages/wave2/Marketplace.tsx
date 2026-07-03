@@ -9,7 +9,7 @@ import { trpc } from '@/lib/trpc';
 import { toast } from 'sonner';
 
 const MarketplacePage: React.FC = () => {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [activeTab, setActiveTab] = useState<'browse' | 'create' | 'orders' | 'sell'>('browse');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

@@ -42,7 +42,7 @@ function timeLeft(deadline: number | string) {
 }
 
 export default function Governance() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [filter, setFilter] = useState("all");
   const [showCreate, setShowCreate] = useState(false);
   const [selectedProposal, setSelectedProposal] = useState<any>(null);

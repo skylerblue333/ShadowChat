@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { getLoginUrl } from "@/const";
 
 export default function TournamentBracket() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [selectedTournament, setSelectedTournament] = useState<number | null>(null);
 
   const { data: tournaments, isLoading } = trpc.gamefi.tournaments.useQuery();

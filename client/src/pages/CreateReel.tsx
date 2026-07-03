@@ -25,7 +25,7 @@ const AUDIO_TRACKS = [
 
 export default function CreateReel() {
   const [, navigate] = useLocation();
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const fileRef = useRef<HTMLInputElement>(null);
   const [caption, setCaption] = useState("");
   const [hashtagInput, setHashtagInput] = useState("");

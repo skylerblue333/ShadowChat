@@ -28,7 +28,7 @@ function timeAgo(ts: string | Date) {
 }
 
 export default function Messages() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [selectedChannelId, setSelectedChannelId] = useState<number | null>(null);
   const [messageText, setMessageText] = useState("");
   const [searchQuery, setSearchQuery] = useState("");

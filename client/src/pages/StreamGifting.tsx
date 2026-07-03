@@ -47,7 +47,7 @@ const TOP_GIFTERS = [
 ];
 
 export default function StreamGifting() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [animations, setAnimations] = useState<GiftAnimation[]>([]);
   const [selectedGift, setSelectedGift] = useState(GIFTS[0]);
   const [quantity, setQuantity] = useState(1);

@@ -34,7 +34,7 @@ interface RollResult {
 }
 
 export default function GameDice() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [wager, setWager] = useState("10");
   const [target, setTarget] = useState(50);
   const [isOver, setIsOver] = useState(true);

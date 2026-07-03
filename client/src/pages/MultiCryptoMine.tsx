@@ -43,7 +43,7 @@ interface MineState {
 }
 
 export default function MultiCryptoMine() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [, navigate] = useLocation();
   const [hashPower, setHashPower] = useState(500);
   const [mineStates, setMineStates] = useState<Record<CoinId, MineState>>(

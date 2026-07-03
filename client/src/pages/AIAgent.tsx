@@ -34,7 +34,7 @@ const AGENT_TYPES = [
 ];
 
 export default function AIAgent() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [activeTab, setActiveTab] = useState<"agents" | "logs" | "settings">("agents");
   const [showCreate, setShowCreate] = useState(false);
   const [newAgentType, setNewAgentType] = useState("auto_post");

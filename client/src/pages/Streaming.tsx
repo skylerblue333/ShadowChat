@@ -75,7 +75,7 @@ function StreamCard({ stream, onClick }: { stream: any; onClick: () => void }) {
 }
 
 function LiveStreamViewer({ stream, onClose }: { stream: any; onClose: () => void }) {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [chatMsg, setChatMsg] = useState("");
   const [chatMessages, setChatMessages] = useState<Array<{ id: number; user: string; text: string; color: string }>>([]);
   const [donateAmount, setDonateAmount] = useState(10);
@@ -214,7 +214,7 @@ function LiveStreamViewer({ stream, onClose }: { stream: any; onClose: () => voi
 }
 
 export default function Streaming() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [tab, setTab] = useState<"live" | "vod" | "clips" | "schedule">("live");
   const [selectedStream, setSelectedStream] = useState<any>(null);
 

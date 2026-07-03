@@ -567,7 +567,7 @@ function TrendingSidebar() {
 type FeedTab = "foryou" | "following" | "trending";
 
 export default function Social() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [tab, setTab] = useState<FeedTab>("foryou");
   const [showNSFW, setShowNSFW] = useState(false);
   const [showStoryModal, setShowStoryModal] = useState(false);

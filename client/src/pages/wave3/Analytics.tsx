@@ -6,7 +6,7 @@ import { useAuth } from '@/_core/hooks/useAuth';
 import { trpc } from '@/lib/trpc';
 
 const AnalyticsPage: React.FC = () => {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [activeTab, setActiveTab] = useState<'user' | 'platform' | 'trading' | 'social' | 'marketplace' | 'learning'>('user');
 
   // Queries

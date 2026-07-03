@@ -19,7 +19,7 @@ const TIERS = [
 ];
 
 export default function AffiliateDashboard() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [copied, setCopied] = useState(false);
   const [withdrawAmount, setWithdrawAmount] = useState("");
 

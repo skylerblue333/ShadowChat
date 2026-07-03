@@ -17,7 +17,7 @@ import {
 const CATEGORIES = ["Gaming", "Music", "Just Chatting", "Crypto", "Art", "Education", "Sports", "Technology", "AMA", "Trading"];
 
 export default function CreateLiveStream() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [, navigate] = useLocation();
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Just Chatting");

@@ -83,7 +83,7 @@ const TIER_CONFIG: Record<string, { label: string; color: string; icon: any }> =
 };
 
 function CreatorCard({ creator }: { creator: typeof FEATURED_CREATORS[0] }) {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [followed, setFollowed] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const tier = TIER_CONFIG[creator.tier] || TIER_CONFIG.Rising;

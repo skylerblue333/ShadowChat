@@ -81,7 +81,7 @@ function OrderCard({ order }: { order: any }) {
 }
 
 export default function OrderHistory() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [role, setRole] = useState<"buyer" | "seller">("buyer");
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");

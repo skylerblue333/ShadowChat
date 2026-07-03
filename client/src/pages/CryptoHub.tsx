@@ -65,7 +65,7 @@ function usd(balance: number, price: number): string {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function CryptoHub() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const utils = trpc.useUtils();
 
   // Balances

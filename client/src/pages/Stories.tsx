@@ -63,7 +63,7 @@ const DEMO_STORY_GROUPS = [
 ];
 
 export default function Stories() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
 
   // Age / NSFW state
   const [ageVerified, setAgeVerified] = useState(() => {

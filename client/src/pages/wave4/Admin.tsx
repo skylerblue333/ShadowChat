@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
 
 export default function AdminPage() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const { data: users, isLoading: usersLoading } = trpc.wave4Admin.getUsers.useQuery({

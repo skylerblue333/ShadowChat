@@ -15,7 +15,7 @@ const TIERS = [
 ];
 
 export default function Referrals() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const [copied, setCopied] = useState(false);
 
   const { data: stats } = trpc.creatorGrowth.getReferralStats.useQuery(undefined, { enabled: isAuthenticated });

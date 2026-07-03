@@ -23,7 +23,7 @@ const MINING_ACTIONS = [
 ];
 
 export default function Mining() {
-  const user = { id: "test-user", name: "Test User", email: "test@example.com" }; const isAuthenticated = true;
+  
   const utils = trpc.useUtils();
   const { data: stats, isLoading } = trpc.mining.stats.useQuery(undefined, { enabled: isAuthenticated });
   const { data: pool } = trpc.mining.pool.useQuery();
