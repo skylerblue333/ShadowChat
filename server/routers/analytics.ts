@@ -29,7 +29,7 @@ export const analyticsRouter = router({
       modules: 8,
       features: 45,
       tests: 23,
-      description: "Enterprise-grade AI ecosystem with real LLM integration",
+      description: "Robust AI ecosystem with real LLM integration",
     };
   }),
   // Headline stats for the landing page. Real DB counts are added on top of the

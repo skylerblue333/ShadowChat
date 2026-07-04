@@ -69,7 +69,7 @@ export default function Home() {
             {[
               { icon: Sparkles, accent: "cyan" as Accent, label: "Platform Features", value: 22680, fmt: (n: number) => `${n.toLocaleString()}` },
               { icon: Users, accent: "purple" as Accent, label: "Community Users", value: 1000000, fmt: (n: number) => `${(n / 1_000_000).toFixed(1)}M+` },
-              { icon: TrendingUp, accent: "green" as Accent, label: "Enterprise Grade", value: 22680, fmt: (n: number) => `Production Ready` },
+              { icon: TrendingUp, accent: "green" as Accent, label: "Scalable Grade", value: 22680, fmt: (n: number) => `Actively Maintained` },
             ].map(s => (
               <Card key={s.label} className="p-6 text-left" hover>
                 <IconTile icon={s.icon} accent={s.accent} />
@@ -77,7 +77,7 @@ export default function Home() {
                   <AnimatedCounter value={s.value} format={s.fmt} />
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">{s.label}</div>
-                {s.label === "Enterprise Grade" && (
+                {s.label === "Scalable Grade" && (
                   <div className="mt-2 inline-block px-2 py-1 bg-[var(--neon-cyan)]/20 text-[var(--neon-cyan)] text-xs font-semibold rounded">
                     9.9/10 Rarity
                   </div>
@@ -197,7 +197,7 @@ export default function Home() {
       <section className="container pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
-            { icon: Shield, accent: "green" as Accent, title: "Enterprise Security", desc: "Authenticated access & anti-fraud protection across every module." },
+            { icon: Shield, accent: "green" as Accent, title: "Scalable Security", desc: "Authenticated access & anti-fraud protection across every module." },
             { icon: Zap, accent: "cyan" as Accent, title: "AI-Powered Automation", desc: "Real server-side LLM calls drive code, learning paths & recommendations." },
             { icon: Globe, accent: "purple" as Accent, title: "Global Infrastructure", desc: "High-availability architecture built to scale with the community." },
           ].map(({ icon, accent, title, desc }) => (

@@ -1,7 +1,7 @@
 import { router, protectedProcedure } from "../_core/trpc";
 import { z } from "zod";
 
-// Phase 23 — Enterprise Admin Dashboard
+// Phase 23 — Scalable Admin Dashboard
 
 export const phase23AdminDashboardRouter = router({
   // System overview
